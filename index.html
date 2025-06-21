@@ -1,0 +1,260 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>О нас</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        /* Дополнительные стили для плавных анимаций и деталей */
+        body {
+            background: linear-gradient(135deg, #ffb6c1 0%, #ffe4e1 100%);
+            min-height: 100vh;
+            font-family: 'Comfortaa', 'Segoe UI', 'Arial', sans-serif;
+            color: #4b2e4c;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+            animation: bgFadeIn 2s ease;
+            display: flex;
+            flex-direction: column;
+           
+        }
+        @keyframes bgFadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        header {
+            background: rgba(255, 255, 255, 0.7);
+            box-shadow: 0 4px 24px 0 rgba(255,182,193,0.2);
+            padding: 32px 0 16px 0;
+            text-align: center;
+            border-radius: 0 0 32px 32px;
+            animation: headerDrop 1s cubic-bezier(.68,-0.55,.27,1.55);
+        }
+        @keyframes headerDrop {
+            0% { transform: translateY(-60px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
+        h1 {
+            font-size: 2.8rem;
+            letter-spacing: 2px;
+            color: #e75480;
+            margin: 0;
+            text-shadow: 0 2px 8px #fff0f5;
+            animation: fadeIn 1.2s 0.2s both;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        
+        main {
+            max-width: 700px;
+            margin: 40px auto 0 auto;
+            background: rgba(255,255,255,0.85);
+            border-radius: 24px;
+            box-shadow: 0 8px 32px 0 rgba(255,182,193,0.15);
+            padding: 32px 40px;
+            animation: mainAppear 1.2s 0.5s both;
+            flex-shrink: 0;
+        }
+        @keyframes mainAppear {
+            0% { transform: scale(0.96) translateY(40px); opacity: 0; }
+            100% { transform: scale(1) translateY(0); opacity: 1; }
+        }
+        section {
+            margin-bottom: 32px;
+            animation: fadeIn 1.5s both;
+        }
+        section h2 {
+            color: #e75480;
+            margin-bottom: 12px;
+            font-size: 1.6rem;
+            letter-spacing: 1px;
+            position: relative;
+        }
+        section h2::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: linear-gradient(90deg, #e75480, #ffb6c1);
+            border-radius: 2px;
+            margin-top: 6px;
+            animation: lineGrow 1s;
+        }
+        @keyframes lineGrow {
+            from { width: 0; }
+            to { width: 60px; }
+        }
+        p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin: 0 0 10px 0;
+            animation: fadeIn 1.5s both;
+        }
+        footer {
+            text-align: center;
+            padding: 18px 0;
+            background: rgba(255,255,255,0.7);
+            border-radius: 24px 24px 0 0;
+            margin-top: auto;
+            color: #b06a7a;
+            font-size: 1rem;
+            box-shadow: 0 -2px 16px 0 rgba(255,182,193,0.08);
+            animation: fadeIn 1.5s 1s both;
+        }
+        /* Плавная анимация появления меню */
+        #menu-placeholder {
+            opacity: 0;
+            transform: translateY(-10px);
+            transition: opacity 0.8s, transform 0.8s;
+        }
+        #menu-placeholder.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        #menu-placeholder ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        #menu-placeholder li {
+            margin: 0;
+            padding: 0;
+        }
+        /* Анимация кнопок меню (пример для menu.html) */
+        .menu-container {
+           display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            justify-content: center;
+            align-items: center;
+            gap: 16px;
+            padding: 20px;
+            margin: 0 auto;
+            max-width: 100%;
+            box-sizing: border-box;
+        }
+        .menu-link {
+            display: inline-block;
+            padding: 12px 24px;
+            font-size: 1.1rem;
+            font-weight: 500;
+            border-radius: 28px;
+            color: #e75480;
+            text-decoration: none;
+            background: rgba(255, 255, 255, 0.65);
+            box-shadow: 0 4px 12px rgba(255,182,193,0.2);
+            transition: all 0.3s ease-in-out;
+            white-space: nowrap;
+        }
+        .menu-link:hover {
+            background: #e75480;
+            color: #fff;
+            box-shadow: 0 4px 14px rgba(231, 84, 128, 0.4);
+            transform: translateY(-2px);
+        }
+        @media (max-width: 768px) {
+    body {
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    header {
+        padding: 24px 0 12px 0;
+        border-radius: 0 0 24px 24px;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .menu-container {
+        flex-direction: column;
+        gap: 12px;
+        padding: 16px;
+    }
+
+    .menu-link {
+        width: 100%;
+        text-align: center;
+        font-size: 1rem;
+    }
+
+    main {
+        width: 100%;
+        padding: 24px 20px;
+        margin-top: 24px;
+    }
+
+    section h2 {
+        font-size: 1.4rem;
+    }
+
+    footer {
+        padding: 16px 10px;
+        font-size: 0.95rem;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .menu-link {
+        padding: 10px 16px;
+        font-size: 0.95rem;
+    }
+
+    section h2 {
+        font-size: 1.2rem;
+    }
+
+    p {
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+}
+    </style>
+</head>
+<body>
+    <div class="menu-container">
+        <a href="#" class="menu-link">О Нас</a>
+        <a href="C:\Users\iztai\Desktop\my-girly-website\src\galerey.html" class="menu-link">Галерея</a>
+        <a href="#" class="menu-link">---</a>
+        <a href="#" class="menu-link">---</a>
+    </div>
+    <main>
+        <section>
+            <h2>Этот сайт — наша маленькая вселенная</h2>
+            <p>Он создан, чтобы сохранить то, что не забывается. Здесь живут наши улыбки, взгляды, слова, моменты, которые стали частичкой сердца.</p>
+            <p>Каждая фотография — это воспоминание.</p>
+            <p>Каждое слово — это чувство.</p>
+            <p>Каждая страница — это шаг в нашей истории.</p>
+        </section>
+        <section>
+            <h2>Пусть время идёт, пусть меняется мир —</h2>
+            <p>но здесь навсегда останется "мы".</p>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 25.05.2025 Сохрани меня в сердце</p>
+    </footer>
+    <script src="js/main.js"></script>
+    <script>
+        // Подключение меню с плавной анимацией
+        fetch('components/menu.html')
+            .then(response => response.text())
+            .then(data => {
+                const menu = document.getElementById('menu-placeholder');
+                menu.innerHTML = data;
+                setTimeout(() => menu.classList.add('visible'), 100);
+            });
+    </script>
+</body>
+</html>
